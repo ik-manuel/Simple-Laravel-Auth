@@ -18,8 +18,19 @@
       <h1>
         <a href="/">Lara Auth</a>
       </h1>
-      <a href="{{ route('show.register') }}">Register</a>
-      <a href="{{ route('show.login') }}">Login</a>
+      @guest
+        <a href="{{ route('show.register') }}" class="btn">Register</a>
+        <a href="{{ route('show.login') }}" class="btn">Login</a>
+      @endguest
+
+      @auth
+        <span class="border-r-2 pr-2">
+          Welcome, {{ Auth::user()->name}}
+        </span>
+        <form action=" {{ route('logout') }} " method="post" class="m-0">
+          <button class="btn">Logout</button>
+        </form>
+      @endauth
     </nav>
   </header>
 
