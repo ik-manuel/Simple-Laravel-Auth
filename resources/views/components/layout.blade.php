@@ -27,7 +27,8 @@
         <span class="border-r-2 pr-2">
           Welcome, {{ Auth::user()->name}}
         </span>
-        <form action=" {{ route('logout') }} " method="post" class="m-0">
+        <form action=" {{ route('logout') }} " method="POST" class="m-0">
+          @csrf
           <button class="btn">Logout</button>
         </form>
       @endauth
